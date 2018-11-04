@@ -13,50 +13,13 @@ const Light = styled.div`
 `
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      redOn: false,
-      yellowOn: false,
-      greenOn: true
-    }
-  }
-
-  timeout = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms))
-  }
-
-  slow = () => {  
-    this.setState({
-      redOn: false,
-      yellowOn: true,
-      greenOn: false
-    })
-  }
-
-  stop = () => {
-    setTimeout(() => {
-      this.setState({
-        redOn: true,
-        yellowOn: false,
-        greenOn: false
-      })
-    }, 2000)
-  }
-
-  async componentDidMount() {
-    await this.timeout(2000)
-    await this.slow()
-    this.stop()
-  }
 
   render() {
-    const { redOn, yellowOn, greenOn } = this.state
      return (
       <Light>
-        <div className={redOn ? 'light red' : 'light'}></div>
-        <div className={yellowOn ? 'light yellow' : 'light'}></div>
-        <div className={greenOn ? 'light green' : 'light'}></div>
+        <div className='light'></div>
+        <div className='light'></div>
+        <div className='light'></div>
       </Light>
     );
   }
